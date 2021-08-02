@@ -21,6 +21,10 @@ public class MissingPointOfParallelogram {
 		MissingPointOfParallelogram obj = new MissingPointOfParallelogram();
 		double[] ans = obj.findPoint(A, B, C);
 		System.out.println(ans[0] + " " + ans[1]);
+		Class<MissingPointOfParallelogram> c = MissingPointOfParallelogram.class;
+		System.out.println(c.getClassLoader());
+		Parent a = new subclass2();
+		a.Print();
 	}
 
 	public double[] findPoint(int A[], int B[], int C[]) {
@@ -128,4 +132,28 @@ class PointPair implements Comparable<PointPair> {
 		return Double.compare(this.first, o.first);
 	}
 
+}
+
+class Parent {
+	  
+    void Print()
+    {
+        System.out.println("parent class");
+    }
+}
+  
+class subclass1 extends Parent {
+  
+    void Print()
+    {
+        System.out.println("subclass1");
+    }
+}
+  
+class subclass2 extends Parent {
+  
+    void Print()
+    {
+        System.out.println("subclass2");
+    }
 }
