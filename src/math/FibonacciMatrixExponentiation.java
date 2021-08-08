@@ -1,7 +1,7 @@
 package math;
 
 /**
- * @author PRATAP
+ * @author PRATAP InterviewBit
  *
  */
 public class FibonacciMatrixExponentiation {

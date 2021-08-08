@@ -6,7 +6,7 @@ package arrays;
 import java.util.HashMap;
 
 /**
- * @author PRATAP
+ * @author PRATAP LeetCode 974
  *
  */
 public class SubarraySumsDivisibleByK {
