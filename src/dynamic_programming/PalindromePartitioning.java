@@ -4,7 +4,7 @@
 package dynamic_programming;
 
 /**
- * @author PRATAP
+ * @author PRATAP LeetCode 132
  *
  */
 public class PalindromePartitioning {
