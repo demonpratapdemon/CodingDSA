@@ -3,9 +3,6 @@
  */
 package problem_of_the_day;
 
-import java.util.HashMap;
-import java.util.TreeSet;
-
 /**
  * @author PRATAP
  *
@@ -28,15 +25,15 @@ public class NumberOfPalindromicStrings {
 		long[] dp = new long[N + 1];
 		if (N == 1)
 			return K;
-		dp[1] = K % mod;
-		dp[2] = K % mod;
-		long sum = (dp[1] + dp[2]) % mod;
+		dp[1] = K;
+		dp[2] = K;
+		long sum = dp[1] + dp[2];
 		for (int i = 3; i <= N; i++) {
 			if (i % 2 == 0) {
 				dp[i] = dp[i - 1];
 			} else {
 				int temp = (i / 2);
-				dp[i] = (dp[i - 1] * ((K - temp) % mod)) % mod;
+				dp[i] = (dp[i - 1] * (K - temp) ) % mod;
 			}
 			sum = (sum + dp[i]) % mod;
 		}
