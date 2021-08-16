@@ -17,9 +17,9 @@ public class FractionalKnapsack {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int W = 50;
-		int wt[] = { 10, 20, 30 };
-		int val[] = { 60, 100, 120 };
+		int W = 48;
+		int wt[] = { 4, 12, 2, 18, 15, 6, 5 };
+		int val[] = { 25, 75, 15, 95, 80, 40, 35 };
 		double ans = knapSack(W, wt, val, val.length);
 		System.out.println(ans);
 	}
