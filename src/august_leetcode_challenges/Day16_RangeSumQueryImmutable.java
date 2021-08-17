@@ -7,7 +7,7 @@ package august_leetcode_challenges;
  * @author PRATAP LeetCode 303
  *
  */
-public class Day17_RangeSumQueryImmutable {
+public class Day16_RangeSumQueryImmutable {
 
 	/**
 	 * @param args
