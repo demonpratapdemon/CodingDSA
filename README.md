@@ -1,2 +1,2 @@
 # CodingDSA
-Problems from LeetCode, Hackerrank, GeeksForGeeks and InterviewBit
+Problems from LeetCode, Hackerrank, GeeksForGeeks and InterviewBit, Coding Ninjas
