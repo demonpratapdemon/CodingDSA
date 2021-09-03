@@ -18,7 +18,7 @@ public class FindAllAnagramsInAString {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String s = "abab", p = "ab";
+		String s = "ababa", p = "ab";
 		FindAllAnagramsInAString obj = new FindAllAnagramsInAString();
 		List<Integer> ans = obj.findAnagrams(s, p);
 		System.out.println(ans);

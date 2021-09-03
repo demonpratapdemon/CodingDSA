@@ -15,7 +15,7 @@ public class PalindromePartitioning {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		String str = "ababbbabbababa";
-		String str = "aaabba";
+		String str = "abaaabba";
 		int ans = palindromicPartition(str);
 		System.out.println(ans);
 	}
