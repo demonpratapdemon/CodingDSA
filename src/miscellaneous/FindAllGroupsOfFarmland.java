@@ -19,7 +19,12 @@ public class FindAllGroupsOfFarmland {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int[][] land = { { 1, 0, 0 }, { 0, 1, 1 }, { 0, 1, 1 } };
+		FindAllGroupsOfFarmland obj = new FindAllGroupsOfFarmland();
+		int[][] ans = obj.findFarmland(land);
+		for (int i = 0; i < ans.length; i++) {
+			System.out.println(ans[i][0] + " " + ans[i][1] + " " + ans[i][2] + " " + ans[i][3]);
+		}
 	}
 
 	public int[][] findFarmland(int[][] land) {
@@ -34,7 +39,14 @@ public class FindAllGroupsOfFarmland {
 				}
 			}
 		}
-		return new int[][] { { 0, 0, 0, 0 } };
+		int[][] res = new int[list.size()][4];
+		for (int i = 0; i < list.size(); i++) {
+			res[i][0] = list.get(i).get(0);
+			res[i][1] = list.get(i).get(1);
+			res[i][2] = list.get(i).get(2);
+			res[i][3] = list.get(i).get(3);
+		}
+		return res;
 	}
 
 	static int[][] adj = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
