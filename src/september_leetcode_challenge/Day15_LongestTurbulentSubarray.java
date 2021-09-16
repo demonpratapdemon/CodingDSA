@@ -3,6 +3,8 @@
  */
 package september_leetcode_challenge;
 
+import java.util.Arrays;
+
 /**
  * @author PRATAP LeetCode 978
  *
@@ -16,8 +18,26 @@ public class Day15_LongestTurbulentSubarray {
 		// TODO Auto-generated method stub
 		int[] arr = { 9, 4, 2, 10, 7, 8, 8, 1, 9 };
 		Day15_LongestTurbulentSubarray obj = new Day15_LongestTurbulentSubarray();
-		int ans = obj.maxTurbulenceSize(arr);
+		int ans = obj.maxTurbulenceSize1(arr);
 		System.out.println(ans);
+	}
+
+	public int maxTurbulenceSize1(int[] arr) {
+		int n = arr.length;
+		int[] greater = new int[n];
+		int[] smaller = new int[n];
+		Arrays.fill(greater, 1);
+		Arrays.fill(smaller, 1);
+		int max = 1;
+		for (int i = 1; i < n; i++) {
+			if (arr[i] > arr[i - 1]) {
+				greater[i] = smaller[i - 1] + 1;
+			} else if (arr[i] < arr[i - 1]) {
+				smaller[i] = greater[i - 1] + 1;
+			}
+			max = Math.max(max, Math.max(greater[i], smaller[i]));
+		}
+		return max;
 	}
 
 	public int maxTurbulenceSize(int[] arr) {
