@@ -18,6 +18,8 @@ import entities.TreeNode;
 public class Utility {
 
 	static List<Integer> bstInOrder = new ArrayList<Integer>();
+	static List<Integer> preOrder = new ArrayList<Integer>();
+	static List<Integer> levelOrder = new ArrayList<Integer>();
 
 	public static boolean binarySearch(int[] newArr, int item) {
 
@@ -129,5 +131,38 @@ public class Utility {
 		root.left = createMinHeightBST(arr, i, mid - 1);
 		root.right = createMinHeightBST(arr, mid + 1, j);
 		return root;
+	}
+
+	public static List<Integer> preorderTraversal(TreeNode root) {
+		// TODO Auto-generated method stub
+		if (root == null) {
+			preOrder.add(null);
+			return preOrder;
+		}
+		preOrder.add(root.data);
+		preorderTraversal(root.left);
+		preorderTraversal(root.right);
+		return preOrder;
+	}
+
+	public static List<Integer> levelOrderTraversal(TreeNode root) {
+		// TODO Auto-generated method stub
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			while (size-- > 0) {
+				TreeNode curr = q.poll();
+				if (curr == null)
+					levelOrder.add(null);
+				else
+					levelOrder.add(curr.data);
+				if (curr != null) {
+					q.add(curr.left);
+					q.add(curr.right);
+				}
+			}
+		}
+		return levelOrder;
 	}
 }
