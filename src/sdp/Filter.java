@@ -23,13 +23,20 @@ public class Filter {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		printList(filterEven(n));
-		printList(filterOdd(n));
-		printList(filterLessThanFive(n));
+		System.out.println("Enter the numbers : ");
+		String[] buffer = br.readLine().trim().split("\\s+");
+		int[] input = new int[buffer.length];
+		for (int i = 0; i < buffer.length; i++)
+			input[i] = Integer.parseInt(buffer[i]);
+		System.out.println("Even List : ");
+		printList(filterEven(input));
+		System.out.println("Odd List : ");
+		printList(filterOdd(input));
+		System.out.println("Numbers Less than 5 List : ");
+		printList(filterLessThanFive(input));
 	}
 
-	private static List<Integer> filterLessThanFive(int n) {
+	private static List<Integer> filterLessThanFive(int[] input) {
 		// TODO Auto-generated method stub
 		return filter(new Filtering() {
 			@Override
@@ -37,25 +44,25 @@ public class Filter {
 				// TODO Auto-generated method stub
 				return n < 5 ? n : -1;
 			}
-		}, n);
+		}, input);
 	}
 
-	private static List<Integer> filterOdd(int n) {
+	private static List<Integer> filterOdd(int[] input) {
 		// TODO Auto-generated method stub
-		return filter(new OddFilter(), n);
+		return filter(new OddFilter(), input);
 	}
 
-	private static List<Integer> filterEven(int n) {
+	private static List<Integer> filterEven(int[] input) {
 		// TODO Auto-generated method stub
-		return filter(new EvenFilter(), n);
+		return filter(new EvenFilter(), input);
 	}
 
-	private static List<Integer> filter(Filtering func, int n) {
+	private static List<Integer> filter(Filtering func, int[] input) {
 		// TODO Auto-generated method stub
 		List<Integer> result = new ArrayList<Integer>();
-		for (int i = 0; i <= n; i++) {
-			if (func.filter(i) == i)
-				result.add(i);
+		for (int i = 0; i < input.length; i++) {
+			if (func.filter(input[i]) == input[i])
+				result.add(input[i]);
 		}
 		return result;
 	}
