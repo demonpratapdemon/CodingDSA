@@ -6,6 +6,8 @@ package sdp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author PRATAP
@@ -99,7 +101,7 @@ class YourSD extends StandardDeviation {
 		// TODO Auto-generated method stub
 		double sum = 0;
 		for (int i = 0; i < sqDiffs.length; i++) {
-			sum +=  sqDiffs[i];
+			sum += sqDiffs[i];
 		}
 		return sum;
 	}
@@ -128,14 +130,31 @@ class YourSD extends StandardDeviation {
 	@Override
 	protected double findAvg(double[] marks) {
 		// TODO Auto-generated method stub
-		int count = 0;
-		double sum = 0;
-		int i = 0;
-		for (; i < marks.length; i++) {
-			sum += marks[i];
+		int blockSize = 3;
+		int len = marks.length;
+		int blocks = len / blockSize;
+		List<Double> avgs = new ArrayList<Double>();
+		int j = 0;
+		for (int i = 0; i < blocks; i++) {
+			double sum = 0;
+			for (j = i * blockSize; j < i * blockSize + blockSize; j++) {
+				sum += marks[j];
+			}
+			avgs.add(sum / blockSize);
 		}
-		count = i;
-		return sum / count;
+		if (j <= marks.length - 1) {
+			double sum = 0;
+			int count = marks.length - j;
+			while (j < marks.length) {
+				sum += marks[j];
+				j++;
+			}
+			avgs.add(sum / count);
+		}
+		double sum = 0;
+		for (double avg : avgs)
+			sum += avg;
+		return sum / avgs.size();
 	}
 
 }
