@@ -18,8 +18,7 @@ public class Day14_RangeSumOfBST {
 
 	/**
 	 * @param args
-	 * @throws IOException 
-	 */
+	 * @throws IOExceptiony*/
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
