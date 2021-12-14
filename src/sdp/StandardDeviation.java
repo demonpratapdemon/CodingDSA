@@ -35,7 +35,7 @@ public abstract class StandardDeviation {
 		System.out.println("Your Standard Deviation = " + sd2.findSD(marks));
 	}
 
-	public double findSD(double[] marks) {
+	public final double findSD(double[] marks) {
 		double avg = findAvg(marks);
 		double[] diffs = findDiffs(marks, avg);
 		double[] sqDiffs = findSqDiffs(diffs);
